@@ -1,5 +1,5 @@
 
-/** This class models a Delek in the game. A Delek has
+/** This class models a Dalek in the game. A Delek has
  *  a position and can advance towards the Doctor.
  */
 public class Dalek {
