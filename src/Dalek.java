@@ -35,7 +35,7 @@ public class Dalek {
      * @return This Dalek's row.
      */
     public int getRow() {
-
+        
     }
 
     /**

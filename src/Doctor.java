@@ -1,6 +1,7 @@
 
-/** This class models the Doctor in the game. A Doctor has
- *  a position and can move to a new position.
+/**
+ * This class models the Doctor in the game. A Doctor has a position and can
+ * move to a new position.
  */
 public class Doctor {
 
@@ -28,7 +29,7 @@ public class Doctor {
      * @param newCol The column the player clicked on.
      */
     public void move(int newRow, int newCol) {
-
+        this.getRow() == 5;
     }
 
     /**
@@ -37,7 +38,8 @@ public class Doctor {
      * @return This Doctor's row.
      */
     public int getRow() {
-
+        // return the row the doctor is on
+        return this.row;
     }
 
     /**
@@ -46,7 +48,8 @@ public class Doctor {
      * @return This Doctor's column.
      */
     public int getCol() {
-
+        // return the column the doctor is on
+        return this.col;
     }
 
 }
