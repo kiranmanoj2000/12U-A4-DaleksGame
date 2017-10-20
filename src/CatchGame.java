@@ -1,4 +1,7 @@
 
+import java.awt.Color;
+
+
 /** This class manages the interactions between the different pieces of
  *  the game: the Board, the Daleks, and the Doctor. It determines when
  *  the game is over and whether the Doctor won or lost.
@@ -28,6 +31,8 @@ public class CatchGame {
      * (create people, set positions, etc.)
      */
     public CatchGame(){
+        // put a peg in the position of the doctor
+        board.putPeg(Color.green, doc.getRow(), doc.getCol());
         
     }
     
@@ -36,21 +41,12 @@ public class CatchGame {
      * selects a square, when the Daleks move, when the game is won/lost.
      */
     public void playGame() {
-        // allow the doctor to move
         while(true){
-            
-            
-            // keep track of where the user has clicked to move the doctor
-            
-            Coordinate click = board.getClick();
-            // if the user has clicked on a square immediatly surrounfig the doctor
-            if((click.getRow()!=doc.getRow()+1||click.getRow()!=doc.getRow()-1)||
-                    (click.getCol()!=doc.getCol()+1||click.getCol()!=doc.getCol()-1)){
-            // find the row he user clicked on
-            int clickRow = click.getRow();
-        }   // if the player clicks on the same position that the doctor is on
-            else
-    }
+        // find where they  clicked 
+        Coordinate click = board.getClick();
+        // make the doctor move to where the user clicked
+        doc.move(click.getRow(), click.getCol());
+        }
 
 }
 }

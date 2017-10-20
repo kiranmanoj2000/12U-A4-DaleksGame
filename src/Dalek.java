@@ -35,7 +35,7 @@ public class Dalek {
      * @return This Dalek's row.
      */
     public int getRow() {
-        
+        return 1;
     }
 
     /**
@@ -44,7 +44,7 @@ public class Dalek {
      * @return This Dalek's column.
      */
     public int getCol() {
-
+return 1;
     }
 
     /**
@@ -60,7 +60,7 @@ public class Dalek {
      * @return true if this Dalek has crashed, false otherwise
      */
     public boolean hasCrashed() {
-
+return false;
     }
 
 }

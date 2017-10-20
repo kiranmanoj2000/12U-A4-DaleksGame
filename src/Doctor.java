@@ -14,7 +14,10 @@ public class Doctor {
      * @param theCol The column this Doctor starts at.
      */
     public Doctor(int theRow, int theCol) {
-
+        // set the row to where the doctor is randomly placed
+        theRow = this.row;
+        // set the column to where the doctor is randomly placed
+        theCol = this.col;
     }
 
     /**
@@ -29,9 +32,35 @@ public class Doctor {
      * @param newCol The column the player clicked on.
      */
     public void move(int newRow, int newCol) {
-        this.getRow() == 5;
+        // allow the doctor to move
+        
+            
+            
+            // keep track of where the user has clicked to move the doctor
+             
+            
+            // if the user has clicked on a square immediatly surrounfig the doctor
+            if((newRow!=this.getRow()+1||newRow!=this.getRow()-1)||
+                    (newCol!=this.getCol()+1||newCol!=this.getCol()-1)){
+                // set the row to the one they clicked in
+                this.row = newRow;
+                // set the column of the doctor to the one they clicked on
+                this.col = newCol;
+            
+        }   // if the player clicks on the same position that the doctor is on
+            else if(newRow == this.row&&newCol==this.col){
+                // keep the doctor in the same spot they clicked on
+                this.row = newRow;
+                this.col = newCol;
+            } // they did not click on the same position or an immediate block around them
+            else{
+            // move the doctor to a random spot
+                this.row =(int)(Math.random()*12);
+                this.col =(int)(Math.random()*12);
+            
+    
     }
-
+    }
     /**
      * Returns the row of this Doctor.
      *
