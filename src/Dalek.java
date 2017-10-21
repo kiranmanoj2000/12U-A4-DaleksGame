@@ -1,6 +1,7 @@
 
-/** This class models a Dalek in the game. A Delek has
- *  a position and can advance towards the Doctor.
+/**
+ * This class models a Dalek in the game. A Delek has a position and can advance
+ * towards the Doctor.
  */
 public class Dalek {
 
@@ -14,7 +15,10 @@ public class Dalek {
      * @param theCol The column this Dalek starts at.
      */
     public Dalek(int theRow, int theCol) {
-
+        // set the row of each dalek to where it is randomly placed
+        this.row = theRow;
+        // set the column of each dalek to where it is randomly placed
+        this.col = theCol;
     }
 
     /**
@@ -26,7 +30,46 @@ public class Dalek {
      * @param doc The Doctor to move towards.
      */
     public void advanceTowards(Doctor doc) {
-
+        // move the dalek towards the doctor
+        // if the dalek is directly underneath the doctor
+        if (doc.getCol() == this.col && doc.getRow() < this.row) {
+            // move the dalek up one space
+            this.row = this.row - 1;
+        }// if the doctor is directly underneath the dalek
+        else if (doc.getCol() == this.col && doc.getRow() > this.row) {
+            // move the dalek down
+            this.row = this.row + 1;
+        }// if the doctor is exactly to the right
+        else if(doc.getRow()==this.row&&doc.getCol()>this.col){
+            // move the dalek to the right
+            this.col=this.col+1;
+        }// if the doctor is exactly to the left
+        else if(doc.getRow()==this.row&&doc.getCol()<this.col){
+            // move the dalek to the left
+            this.col=this.col-1;
+        }
+        // if the doctor is to the diagonal right
+        else if(doc.getRow()<this.row&&doc.getCol()>this.col){
+            // move the dalek up and to the right
+            this.col=this.col+1;
+            this.row = this.row-1;
+        }
+        // if the doctor is to the diagonal left
+        else if(doc.getRow()<this.row&&doc.getCol()<this.col){
+            // move the dalek up and to the left
+            this.col=this.col-1;
+            this.row = this.row-1;
+        }// if the doctor is to the diagonally bottom right
+        else if(doc.getRow()>this.row&&doc.getCol()>this.col){
+            // move the dalek down and to the right
+            this.col=this.col+1;
+            this.row = this.row+1;
+        }// if the doctor is to the diagonallly bottom left
+        else if(doc.getRow()>this.row&&doc.getCol()<this.col){
+            // move the dalek down and to the left
+            this.col=this.col-1;
+            this.row = this.row+1;
+        }
     }
 
     /**
@@ -35,7 +78,8 @@ public class Dalek {
      * @return This Dalek's row.
      */
     public int getRow() {
-        return 1;
+        // return the row of the dalek
+        return this.row;
     }
 
     /**
@@ -44,14 +88,20 @@ public class Dalek {
      * @return This Dalek's column.
      */
     public int getCol() {
-return 1;
+        // return the column of the dalek
+        return this.col;
+
     }
 
     /**
      * Sets the Dalek to be in a crashed state.
      */
     public void crash() {
-
+        while(true){
+            // keep the dalek in the same position
+            this.col=this.col;
+            this.row=this.row;
+        }
     }
 
     /**
@@ -60,7 +110,8 @@ return 1;
      * @return true if this Dalek has crashed, false otherwise
      */
     public boolean hasCrashed() {
-return false;
-    }
+        // if two daleks are in the same spot
+        return true;
 
+    }
 }

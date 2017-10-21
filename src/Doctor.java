@@ -15,9 +15,9 @@ public class Doctor {
      */
     public Doctor(int theRow, int theCol) {
         // set the row to where the doctor is randomly placed
-        theRow = this.row;
+        this.row = theRow;
         // set the column to where the doctor is randomly placed
-        theCol = this.col;
+        this.col = theCol;
     }
 
     /**
@@ -33,34 +33,33 @@ public class Doctor {
      */
     public void move(int newRow, int newCol) {
         // allow the doctor to move
-        
-            
-            
-            // keep track of where the user has clicked to move the doctor
-             
-            
-            // if the user has clicked on a square immediatly surrounfig the doctor
-            if((newRow!=this.getRow()+1||newRow!=this.getRow()-1)||
-                    (newCol!=this.getCol()+1||newCol!=this.getCol()-1)){
-                // set the row to the one they clicked in
-                this.row = newRow;
-                // set the column of the doctor to the one they clicked on
-                this.col = newCol;
-            
-        }   // if the player clicks on the same position that the doctor is on
-            else if(newRow == this.row&&newCol==this.col){
-                // keep the doctor in the same spot they clicked on
-                this.row = newRow;
-                this.col = newCol;
-            } // they did not click on the same position or an immediate block around them
-            else{
+        // if the user has clicked on a square immediatly on top the doctor
+        if (((newRow - this.row == -1 || newRow - this.row == 0) && (newCol - this.col == 0 || newCol - this.col == -1 || newCol - this.col == 1))
+                // or if a space to the immediate left is clicked
+                || ((newRow - this.row == -1 || newRow - this.row == 0) && (newCol - this.col == -1))
+                // or if a space directly under is clicked
+                || ((newRow - this.row == 1 || newRow - this.row == 0) && (newCol - this.col == -1 || newCol - this.col == 0 || newCol - this.col == 1))
+                // or if a space directly to the right is clicked
+                || ((newRow - this.row == 0) && (newCol - this.col == 1))) {
+            // set the row to the one they clicked in
+            this.row = newRow;
+            // set the column of the doctor to the one they clicked on
+            this.col = newCol;
+
+        } // if the player clicks on the same position that the doctor is on
+        else if (newRow == this.row && newCol == this.col) {
+            // keep the doctor in the same spot they clicked on
+            this.row = newRow;
+            this.col = newCol;
+        } // they did not click on the same position or an immediate block around them
+        else {
             // move the doctor to a random spot
-                this.row =(int)(Math.random()*12);
-                this.col =(int)(Math.random()*12);
-            
-    
+            this.row = (int) (Math.random() * 12);
+            this.col = (int) (Math.random() * 12);
+
+        }
     }
-    }
+
     /**
      * Returns the row of this Doctor.
      *
