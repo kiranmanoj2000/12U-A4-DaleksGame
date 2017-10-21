@@ -55,8 +55,8 @@ public class CatchGame {
             // remove the peg where the doctor was before the click
             board.removePeg(doc.getRow(), doc.getCol());
             // make the doctor move to where the user clicked
-            doc.move(click.getRow(), click.getCol());// remove the peg where the first dalek was
-            board.removePeg(dalekOne.getRow(),dalekOne.getCol());
+            doc.move(click.getRow(), click.getCol());
+            
             // move the peg that represents the doctor
             board.putPeg(Color.green, doc.getRow(), doc.getCol());
             
