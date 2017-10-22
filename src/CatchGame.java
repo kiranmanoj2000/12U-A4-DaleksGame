@@ -66,7 +66,7 @@ public class CatchGame {
             // make the first dalek move closer to the doctor
             dalekOne.advanceTowards(doc);
             // move the peg that represents the first dalek
-            board.putPeg(Color.pink, dalekOne.getRow(), dalekOne.getCol());
+            board.putPeg(Color.black, dalekOne.getRow(), dalekOne.getCol());
             
             // remove the peg where the second dalek was
             board.removePeg(dalekTwo.getRow(),dalekTwo.getCol());
@@ -80,7 +80,7 @@ public class CatchGame {
             // make the third dalek move closer to the doctor
             dalekThree.advanceTowards(doc);
             // move the peg that represents the third dalek
-            board.putPeg(Color.yellow, dalekThree.getRow(), dalekThree.getCol());
+            board.putPeg(Color.black, dalekThree.getRow(), dalekThree.getCol());
 
             
             // COLLISIONS
