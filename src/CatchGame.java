@@ -86,7 +86,7 @@ public class CatchGame {
             // COLLISIONS
             
             // if the first two daleks have crashed
-            if(dalekOne.getCol()==dalekTwo.getCol()&&dalekOne.getRow()==dalekTwo.getRow()){
+            if((dalekOne.getCol()==dalekTwo.getCol())&&dalekOne.getRow()==dalekTwo.getRow()){
                 
                 // set the first dalek to be crashed
                 dalekOne.hasCrashed();
@@ -103,7 +103,7 @@ public class CatchGame {
             }
             
             // if dalek two and three have crashed
-            if(dalekTwo.getRow()==dalekThree.getRow()&&dalekTwo.getCol()==dalekThree.getCol()){
+            if((dalekTwo.getRow()==dalekThree.getRow())&&dalekTwo.getCol()==dalekThree.getCol()){
                 
                 // set the second dalek to be crashed
                 dalekTwo.hasCrashed();
@@ -117,7 +117,7 @@ public class CatchGame {
                 board.putPeg(Color.red, dalekTwo.getRow(),dalekTwo.getCol());
             }
             // if dalek one and three have crashed
-            if(dalekOne.getCol()==dalekThree.getCol()&&dalekOne.getRow()==dalekThree.getRow()){
+            if((dalekOne.getCol()==dalekThree.getCol())&&dalekOne.getRow()==dalekThree.getRow()){
                 
                 // set the first dalek to be crashed
                 dalekOne.hasCrashed(); 
@@ -129,7 +129,7 @@ public class CatchGame {
                 // set the third dalek in a crashed state
                 dalekThree.crash();
                 // put a red peg at the crash site
-                board.putPeg(Color.red, dalekOne.getRow(),dalekOne.getCol());
+                board.putPeg(Color.red, dalekThree.getRow(),dalekThree.getCol());
             }
             
             // if a dalek has captured the doctor
@@ -143,6 +143,10 @@ public class CatchGame {
                 // end the game
                 break;
             }
+            
+            
+            // if all daleks have crashed
+            
             // if the doctor moves onto a crash site
             
         }
