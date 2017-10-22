@@ -101,9 +101,8 @@ public class Dalek {
     public void crash() {
         // while the dalek has crashed
         while (hasCrashed) {
-            this.col=this.col;
-            this.row=this.row;
             break;
+            
         }
     }
 
