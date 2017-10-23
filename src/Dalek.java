@@ -100,10 +100,7 @@ public class Dalek {
      */
     public void crash() {
         // while the dalek has crashed
-        while (hasCrashed) {
-            break;
-            
-        }
+        this.hasCrashed = true;
     }
 
     /**
@@ -113,7 +110,12 @@ public class Dalek {
      */
     public boolean hasCrashed() {
         // if two daleks are in the same spot return that they have crashed
-        return true;
+        if(this.hasCrashed){
+            return true;
+        }
+        else{
+            return false;
+        }
 
     }
 }
