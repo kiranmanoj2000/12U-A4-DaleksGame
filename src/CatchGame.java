@@ -37,8 +37,6 @@ public class CatchGame {
         // put a peg in the position of the third dalek
         board.putPeg(Color.black, dalekThree.getRow(), dalekThree.getCol());
 
-
-
     }
 
     /**
@@ -46,6 +44,59 @@ public class CatchGame {
      * selects a square, when the Daleks move, when the game is won/lost.
      */
     public void playGame() {
+        //if a doctor spawns on a dalek at the beginning of the game
+        while ((dalekOne.getCol() == doc.getCol() && dalekOne.getRow() == doc.getRow())
+                || (dalekTwo.getCol() == doc.getCol() && dalekTwo.getRow() == doc.getRow())
+                || (dalekThree.getCol() == doc.getCol() && dalekThree.getRow() == doc.getRow())) {
+            // put a yellow peg in the doctors place
+            board.putPeg(Color.yellow, doc.getRow(), doc.getCol());
+            // output that the game is over (added spaces to centre text while displaying)
+            board.displayMessage("          The doctor has been captured! Try again!");
+            // end the game
+            break;
+        }
+        // if dalek one spawns on dalek two
+        if ((dalekOne.getCol() == dalekTwo.getCol()) && dalekOne.getRow() == dalekTwo.getRow()) {
+            // put a red peg at the crash site
+            board.putPeg(Color.red, dalekOne.getRow(), dalekOne.getCol());
+            // set the first dalek to be in a crashed state
+            dalekOne.crash();
+            // set the second dalek in a crashed state
+            dalekTwo.crash();
+        }
+        // if dalek one spawns on dalek three
+        if ((dalekOne.getCol() == dalekThree.getCol()) && dalekOne.getRow() == dalekThree.getRow()) {
+            // put a red peg at the crash site
+            board.putPeg(Color.red, dalekOne.getRow(), dalekOne.getCol());
+            // set the first dalek to be in a crashed state
+            dalekOne.crash();
+            // set the third dalek in a crashed state
+            dalekThree.crash();
+        }
+        // if dalek two spawns on dalek three
+        if ((dalekTwo.getCol() == dalekThree.getCol()) && dalekTwo.getRow() == dalekThree.getRow()) {
+            // put a red peg at the crash site
+            board.putPeg(Color.red, dalekOne.getRow(), dalekOne.getCol());
+            // set the second dalek to be in a crashed state
+            dalekTwo.crash();
+            // set the third dalek in a crashed state
+            dalekThree.crash();
+        }
+        // if all three daleks spawn at the same spot
+        while ((dalekOne.getRow() == dalekTwo.getRow() && dalekOne.getCol() == dalekTwo.getCol()) && (dalekTwo.getRow() == dalekThree.getRow() && dalekTwo.getCol() == dalekThree.getCol())) {
+            // put a red peg at the crash site
+            board.putPeg(Color.red, dalekOne.getRow(), dalekOne.getCol());
+            // set the first dalek to be in a crashed state
+            dalekOne.crash();
+            // set the third dalek in a crashed state
+            dalekThree.crash();
+            // set the second dalek in a crashed state
+            dalekTwo.crash();
+            // output the doctor has won (extra spaces to centre text)
+            board.displayMessage("            Congratulations, the doctor has won!");
+            // end the game
+            break;
+        }
 
         // while the user is clicking on the screen and all three daleks have not crashed
         while (true) {
@@ -60,7 +111,7 @@ public class CatchGame {
             // move the peg that represents the doctor
             board.putPeg(Color.green, doc.getRow(), doc.getCol());
 
-            // only make dalek one move if it has \ not crashed
+            // only make dalek one move if it has not crashed
             if (!dalekOne.hasCrashed()) {
                 // remove the peg where the first dalek was
                 board.removePeg(dalekOne.getRow(), dalekOne.getCol());
@@ -70,7 +121,7 @@ public class CatchGame {
                 board.putPeg(Color.black, dalekOne.getRow(), dalekOne.getCol());
             }
 
-            // only majke daek two move if it has not crashed
+            // only make daek two move if it has not crashed
             if (!dalekTwo.hasCrashed()) {
                 // remove the peg where the second dalek was
                 board.removePeg(dalekTwo.getRow(), dalekTwo.getCol());
@@ -91,24 +142,20 @@ public class CatchGame {
             }
 
             // COLLISIONS
-
             // if the first two daleks have crashed
-            if ((dalekOne.getCol() == dalekTwo.getCol()) && dalekOne.getRow() == dalekTwo.getRow()) {
-
+            if ((dalekOne.getCol() == dalekTwo.getCol()) && (dalekOne.getRow() == dalekTwo.getRow())) {
 
                 // set the first dalek in a crashed state
                 dalekOne.crash();
 
-
-
                 // set the second dalek in a crashed state
                 dalekTwo.crash();
+                // put a red peg at the crash site
                 board.putPeg(Color.red, dalekOne.getRow(), dalekOne.getCol());
             }
 
             // if dalek two and three have crashed
-            if ((dalekTwo.getRow() == dalekThree.getRow()) && dalekTwo.getCol() == dalekThree.getCol()) {
-
+            if ((dalekTwo.getRow() == dalekThree.getRow()) && (dalekTwo.getCol() == dalekThree.getCol())) {
 
                 // set the second dalek in a crashed state
                 dalekTwo.crash();
@@ -119,19 +166,18 @@ public class CatchGame {
                 board.putPeg(Color.red, dalekTwo.getRow(), dalekTwo.getCol());
             }
             // if dalek one and three have crashed
-            if ((dalekOne.getCol() == dalekThree.getCol()) && dalekOne.getRow() == dalekThree.getRow()) {
-
+            if ((dalekOne.getCol() == dalekThree.getCol()) && (dalekOne.getRow() == dalekThree.getRow())) {
 
                 // set the first dalek in a crashed state
                 dalekOne.crash();
 
-
                 // set the third dalek in a crashed state 
                 dalekThree.crash();
+                // put a red peg at the crash site
                 board.putPeg(Color.red, dalekThree.getRow(), dalekThree.getCol());
             }
 
-            // if a dalek has captured the doctor
+            // if a dalek has captured the doctor or the doctor moves onto a crash site
             if ((dalekOne.getCol() == doc.getCol() && dalekOne.getRow() == doc.getRow())
                     || (dalekTwo.getCol() == doc.getCol() && dalekTwo.getRow() == doc.getRow())
                     || (dalekThree.getCol() == doc.getCol() && dalekThree.getRow() == doc.getRow())) {
@@ -142,21 +188,15 @@ public class CatchGame {
                 // end the game
                 break;
             }
-            
-            
-
-
-            // if all daleks have crashed
-            
-            // if the doctor moves onto a crash site
-
-
+            // if all the daleks have crashed
+            if (dalekOne.hasCrashed() && dalekTwo.hasCrashed() && dalekThree.hasCrashed()) {
+                // output the doctor has won (extra spaces to centre text)
+                board.displayMessage("            Congratulations, the doctor has won!");
+                // end the game
+                break;
+            }
 
         }
-
-        // output the doctor has won (extra spaces to centre text)
-        board.displayMessage("            Congratulations, the doctor has won!");
-        // end the game
 
     }
 }

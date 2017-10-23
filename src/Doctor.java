@@ -48,13 +48,15 @@ public class Doctor {
 
         } // if the player clicks on the same position that the doctor is on
         else if (newRow == this.row && newCol == this.col) {
-            // keep the doctor in the same spot they clicked on
+            // keep the doctor in the same row they clicked on
             this.row = newRow;
+            // keep the doctor in the same column they clicked on
             this.col = newCol;
         } // they did not click on the same position or an immediate block around them
         else {
-            // move the doctor to a random spot
+            // move the doctor to a random row
             this.row = (int) (Math.random() * 12);
+            // move the doctor to a random column
             this.col = (int) (Math.random() * 12);
 
         }

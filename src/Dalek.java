@@ -99,7 +99,7 @@ public class Dalek {
      * Sets the Dalek to be in a crashed state.
      */
     public void crash() {
-        // while the dalek has crashed
+        // when the dalek has crashed set that the dalek has crashed
         this.hasCrashed = true;
     }
 
@@ -109,13 +109,15 @@ public class Dalek {
      * @return true if this Dalek has crashed, false otherwise
      */
     public boolean hasCrashed() {
-        // if two daleks are in the same spot return that they have crashed
-        if(this.hasCrashed){
+        // if two daleks have crashed
+        if (this.hasCrashed) {
+            // return true
             return true;
-        }
-        else{
+        } else {
+            // return false
             return false;
         }
 
     }
+
 }
