@@ -41,7 +41,7 @@ public class Doctor {
                 || ((newRow - this.row == 1 || newRow - this.row == 0) && (newCol - this.col == -1 || newCol - this.col == 0 || newCol - this.col == 1))
                 // or if a space directly to the right is clicked
                 || ((newRow - this.row == 0) && (newCol - this.col == 1))) {
-            // set the row to the one they clicked in
+            // set the row to the one they clicked on
             this.row = newRow;
             // set the column of the doctor to the one they clicked on
             this.col = newCol;
@@ -52,7 +52,7 @@ public class Doctor {
             this.row = newRow;
             // keep the doctor in the same column they clicked on
             this.col = newCol;
-        } // they did not click on the same position or an immediate block around them
+        } // they did not click on the same position or an immediate block around the doctor
         else {
             // move the doctor to a random row
             this.row = (int) (Math.random() * 12);
