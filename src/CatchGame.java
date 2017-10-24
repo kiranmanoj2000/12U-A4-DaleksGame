@@ -44,6 +44,8 @@ public class CatchGame {
      * selects a square, when the Daleks move, when the game is won/lost.
      */
     public void playGame() {
+        // create a boolean that ends the game if a doctor initially spawns on a dalek 
+        boolean endGame = false;
         //while a doctor spawns on a dalek at the beginning of the game
         while ((dalekOne.getCol() == doc.getCol() && dalekOne.getRow() == doc.getRow())
                 || (dalekTwo.getCol() == doc.getCol() && dalekTwo.getRow() == doc.getRow())
@@ -52,6 +54,8 @@ public class CatchGame {
             board.putPeg(Color.yellow, doc.getRow(), doc.getCol());
             // output that the game is over (added spaces to centre text while displaying)
             board.displayMessage("          The doctor has been captured! Try again!");
+            // set the end game boolean to be true
+            endGame = true;
             // end the game
             break;
         }
@@ -98,8 +102,8 @@ public class CatchGame {
             break;
         }
 
-        // while the user is clicking on the screen
-        while (true) {
+        // while the user is clicking on the screen and a doctor has not spawned on a dalek initially
+        while (true && !endGame) {
             // find where they  clicked 
             Coordinate click = board.getClick();
             // remove the peg where the doctor was before the click
