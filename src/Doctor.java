@@ -81,5 +81,4 @@ public class Doctor {
         // return the column the doctor is on
         return this.col;
     }
-
 }

@@ -13,21 +13,21 @@ public class CatchGame {
      * a Doctor
      */
     // create the board
-    Board board = new Board(12, 12);
+    private Board board = new Board(12, 12);
     // create the first dalek in a random position
-    Dalek dalekOne = new Dalek((int) (Math.random() * 12), (int) (Math.random() * 12));
+    private Dalek dalekOne = new Dalek((int) (Math.random() * 12), (int) (Math.random() * 12));
     // create the second dalek in a random position
-    Dalek dalekTwo = new Dalek((int) (Math.random() * 12), (int) (Math.random() * 12));
+    private Dalek dalekTwo = new Dalek((int) (Math.random() * 12), (int) (Math.random() * 12));
     // create the third dalek in a random position
-    Dalek dalekThree = new Dalek((int) (Math.random() * 12), (int) (Math.random() * 12));
+    private Dalek dalekThree = new Dalek((int) (Math.random() * 12), (int) (Math.random() * 12));
     // create the doctor in a random place
-    Doctor doc = new Doctor((int) (Math.random() * 12), (int) (Math.random() * 12));
+    private Doctor doc = new Doctor((int) (Math.random() * 12), (int) (Math.random() * 12));
 
     /**
      * The constructor for the game. Use it to initialize your game variables.
      * (create people, set positions, etc.)
      */
-    public CatchGame() {
+    public CatchGame() { 
         // put a peg in the position of the doctor
         board.putPeg(Color.green, doc.getRow(), doc.getCol());
         // put a peg in the position of the first dalek
