@@ -27,7 +27,7 @@ public class CatchGame {
      * The constructor for the game. Use it to initialize your game variables.
      * (create people, set positions, etc.)
      */
-    public CatchGame() { 
+    public CatchGame() {
         // put a peg in the position of the doctor
         board.putPeg(Color.green, doc.getRow(), doc.getCol());
         // put a peg in the position of the first dalek
