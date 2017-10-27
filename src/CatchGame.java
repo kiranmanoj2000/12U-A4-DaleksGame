@@ -98,6 +98,8 @@ public class CatchGame {
             dalekThree.crash();
             // output the doctor has won (extra spaces to centre text)
             board.displayMessage("            Congratulations, the doctor has won!");
+            // set the end game boolean to be true
+            endGame = true;
             // end the game
             break;
         }
