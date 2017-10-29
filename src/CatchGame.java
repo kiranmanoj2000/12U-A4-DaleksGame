@@ -103,6 +103,23 @@ public class CatchGame {
             // end the game
             break;
         }
+//        // while all three daleks and the doctor spawn on the same square
+//        while(((dalekOne.getCol() == doc.getCol() && dalekOne.getRow() == doc.getRow())
+//                || (dalekTwo.getCol() == doc.getCol() && dalekTwo.getRow() == doc.getRow())
+//                || (dalekThree.getCol() == doc.getCol() && dalekThree.getRow() == doc.getRow())) &&((dalekOne.getRow() == dalekTwo.getRow() && dalekOne.getCol() == dalekTwo.getCol()) && (dalekTwo.getRow() == dalekThree.getRow() && dalekTwo.getCol() == dalekThree.getCol())) ){
+//            // set the first dalek to be in a crashed state
+//            dalekOne.crash();
+//            // set the second dalek in a crashed state
+//            dalekTwo.crash();
+//            // set the third dalek in a crashed state
+//            dalekThree.crash();
+//            // output that the game is over (added spaces to centre text while displaying)
+//            board.displayMessage("          The doctor has been captured! Try again!");
+//            // set the end game boolean to be true
+//            endGame=true;
+//            // end the game
+//            break;
+//        }
 
         // while the user is clicking on the screen and a doctor has not spawned on a dalek initially
         while (true && !endGame) {
